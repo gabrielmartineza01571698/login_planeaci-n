@@ -8,7 +8,7 @@ body {
     align-items: center;
 }
 
-/* Contenedor general (igual que el tuyo) */
+
 .login {
     background: #ffffff;
     padding: 25px;
@@ -16,7 +16,7 @@ body {
     border-radius: 6px;
 }
 
-/* Header/Footer quedan dentro de la tarjeta y se ven integrados */
+
 .site-header, .site-footer {
     text-align: center;
     margin-bottom: 12px;
@@ -75,3 +75,4 @@ body {
 }
 .msg.error { color: #b00000; }
 .msg.ok { color: #0b6b2c; }
+
