@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página 2</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="app.js"></script>
+</head>
+<body>
+<script>
+    requireLogin();
+</script>
+
+<div class="login">
+
+    <!-- Header externo -->
+    <div id="header"></div>
+
+    <h2>Santi</h2>
+
+    <p style="text-align:center; margin: 0 0 15px 0;">
+        Esta otra página tampoco hace nada.
+    </p>
+
+    <div style="display:flex; flex-direction:column; gap:12px;">
+        <img src="foto2.png" alt="Foto 2" style="width:100%; border-radius:6px;">
+    </div>
+
+    <div class="link" style="margin-top: 15px;">
+        Ir a <a href="pag1.html">Jo Raider</a>
+    </div>
+
+    <div class="link">
+        <a href="#" id="logout">Cerrar sesión</a>
+    </div>
+
+    <!-- Footer externo -->
+    <div id="footer"></div>
+</div>
+
+<script>
+    document.getElementById("logout").addEventListener("click", function(e) {
+        e.preventDefault();
+        sessionStorage.removeItem("loggedUser");
+        window.location.href = "login.html";
+    });
+</script>
+</body>
+</html>

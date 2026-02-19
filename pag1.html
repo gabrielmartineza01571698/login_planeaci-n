@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página 1</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="app.js"></script>
+</head>
+<body>
+<script>
+    // Bloqueo: si no hay sesión, te regresa al login
+    requireLogin();
+</script>
+
+<div class="login">
+
+    <!-- Header externo -->
+    <div id="header"></div>
+
+    <h2>Jo Raider</h2>
+
+    <p style="text-align:center; margin: 0 0 15px 0;">
+        Esta pagina no hace nada.
+    </p>
+
+    <div style="display:flex; flex-direction:column; gap:12px;">
+        <img src="foto1.png" alt="Foto 1" style="width:100%; border-radius:6px;">
+    </div>
+
+    <div class="link" style="margin-top: 15px;">
+        Ir a <a href="pag2.html">Santi</a>
+    </div>
+
+    <div class="link">
+        <a href="#" id="logout">Cerrar sesión</a>
+    </div>
+
+    <!-- Footer externo -->
+    <div id="footer"></div>
+</div>
+
+<script>
+    document.getElementById("logout").addEventListener("click", function(e) {
+        e.preventDefault();
+        sessionStorage.removeItem("loggedUser");
+        window.location.href = "login.html";
+    });
+</script>
+</body>
+</html>
