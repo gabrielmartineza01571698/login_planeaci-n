@@ -3,22 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <div class="login">
-    <h2>Iniciar sesion</h2>
+<div class="login">
+    <h2>Iniciar sesión</h2>
 
-    <form>
+    <form id="formLogin">
         <titulo>Usuario</titulo>
-        <input type="text" placeholder="hola">
+        <input id="usuario" type="text" required>
 
         <titulo>Contraseña</titulo>
-        <input type="password" placeholder="1234">
+        <input id="password" type="password" required>
 
         <button type="submit">Entrar</button>
+
+        <div id="msg" class="msg"></div>
+
+        <div class="link">
+            ¿No tienes cuenta? <a href="registro.html">Regístrate</a>
+        </div>
     </form>
 </div>
+
+<script>
+    function getUsers() {
+        const raw = sessionStorage.getItem("users");
+        return raw ? JSON.parse(raw) : [];
+    }
+
+    document.getElementById("formLogin").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const usuario = document.getElementById("usuario").value.trim();
+        const pass = document.getElementById("password").value;
+        const msg = document.getElementById("msg");
+
+        const users = getUsers();
+        const found = users.find(u =>
+            u.usuario.toLowerCase() === usuario.toLowerCase() &&
+            u.password === pass
+        );
+
+        if (found) {
+            sessionStorage.setItem("loggedUser", found.usuario);
+            window.location.href = "pag1.html";
+        } else {
+            msg.className = "msg error";
+            msg.textContent = "Usuario o contraseña incorrectos.";
+        }
+    });
+</script>
 </body>
 </html>
