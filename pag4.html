@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Página 4 - Batalla Pokémon</title>
+
+    <!-- css base -->
+    <link rel="stylesheet" href="login.css" />
+    <!-- css de esta vista -->
+    <link rel="stylesheet" href="battle.css" />
+
+    <script src="app.js"></script>
+    <script src="battle.js" defer></script>
+</head>
+<body>
+<script>
+    // valida sesión
+    requireLogin();
+</script>
+
+<div class="login battle-page">
+    <div id="header"></div>
+
+    <h2>Batalla Pokémon</h2>
+
+    <!-- selección inicial -->
+    <section id="selectionScreen" class="battle-screen active">
+        <p class="battle-subtitle">
+            Elige dos Pokémon y mira cómo se desarrolla la pelea por turnos.
+        </p>
+
+        <div class="battle-select-grid">
+            <div class="battle-select-card">
+                <h3>Pokémon 1</h3>
+
+                <input id="poke1Input" list="pokemonList" type="text" placeholder="ej: pikachu" />
+                <button id="btnPreview1" type="button">Ver Pokémon</button>
+
+                <div class="preview-box" id="previewBox1">
+                    <img id="previewImg1" alt="Pokémon 1" style="display:none;">
+                    <div id="previewName1" class="preview-name"></div>
+                    <div id="previewType1" class="preview-type"></div>
+                </div>
+            </div>
+
+            <div class="battle-versus">VS</div>
+
+            <div class="battle-select-card">
+                <h3>Pokémon 2</h3>
+
+                <input id="poke2Input" list="pokemonList" type="text" placeholder="ej: charizard" />
+                <button id="btnPreview2" type="button">Ver Pokémon</button>
+
+                <div class="preview-box" id="previewBox2">
+                    <img id="previewImg2" alt="Pokémon 2" style="display:none;">
+                    <div id="previewName2" class="preview-name"></div>
+                    <div id="previewType2" class="preview-type"></div>
+                </div>
+            </div>
+        </div>
+
+        <datalist id="pokemonList"></datalist>
+
+        <div id="battleMsg" class="msg"></div>
+
+        <button id="btnStartBattle" type="button" class="battle-main-btn">
+            Comenzar batalla
+        </button>
+    </section>
+
+    <!-- batalla -->
+    <section id="battleScreen" class="battle-screen">
+        <div class="battle-arena">
+            <div class="pokemon-battle-card">
+                <h3 id="p1Name">Pokémon 1</h3>
+                <img id="p1Img" alt="Pokémon 1">
+                <div class="hp-label">Vida: <span id="p1HpText">100</span>%</div>
+                <div class="hp-bar-container">
+                    <div id="p1HpBar" class="hp-bar"></div>
+                </div>
+            </div>
+
+            <div class="battle-center-card">
+                <div class="turn-box">
+                    <div class="turn-title">Turno actual</div>
+                    <div id="turnText" class="turn-text">Preparando...</div>
+                </div>
+
+                <div class="narrator-box">
+                    <div id="narratorText">La pelea está por comenzar.</div>
+                </div>
+            </div>
+
+            <div class="pokemon-battle-card">
+                <h3 id="p2Name">Pokémon 2</h3>
+                <img id="p2Img" alt="Pokémon 2">
+                <div class="hp-label">Vida: <span id="p2HpText">100</span>%</div>
+                <div class="hp-bar-container">
+                    <div id="p2HpBar" class="hp-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- historial -->
+        <div class="log-card">
+            <h3>Historial</h3>
+            <ul id="battleLog"></ul>
+        </div>
+    </section>
+
+    <!-- ganador -->
+    <section id="winnerScreen" class="battle-screen">
+        <h1 class="winner-title">¡GANADOR!</h1>
+        <img id="winnerImg" class="winner-img" alt="Ganador">
+        <h2 id="winnerName">---</h2>
+
+        <button id="btnRestartBattle" type="button" class="battle-main-btn">
+            Volver a jugar
+        </button>
+    </section>
+
+    <!-- navegación -->
+    <div class="link" style="margin-top: 15px;">
+        Ir a <a href="pag1.html">Jo Raider</a> |
+        <a href="pag2.html">Santi</a> |
+        <a href="pag3.html">Pokédex</a>
+    </div>
+
+    <!-- logout -->
+    <div class="link">
+        <a href="#" id="logout">Cerrar sesión</a>
+    </div>
+
+    <div id="footer"></div>
+</div>
+
+<script>
+    // logout local
+    document.getElementById("logout").addEventListener("click", function (e) {
+        e.preventDefault();
+        sessionStorage.removeItem("loggedUser");
+        window.location.href = "login.html";
+    });
+</script>
+</body>
+</html>

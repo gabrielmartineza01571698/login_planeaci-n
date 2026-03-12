@@ -1,0 +1,80 @@
+<!-- pag3.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página 3 - Pokédex</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="app.js"></script>
+</head>
+<body>
+<script>
+    // bloquea si no hay sesión
+    requireLogin();
+</script>
+
+<div class="login">
+    <div id="header"></div>
+
+    <h2>Pokédex</h2>
+
+    <!-- controles de búsqueda -->
+    <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:12px;">
+        <select id="searchMode" style="padding:8px; border:1px solid #ccc; border-radius:4px;">
+            <option value="name">Buscar por Nombre</option>
+            <option value="id">Buscar por ID</option>
+            <option value="type">Buscar por Tipo</option>
+        </select>
+
+        <input id="searchInput" type="text" placeholder="ej: pikachu" />
+
+        <button id="btnBuscar" type="button">Buscar</button>
+
+        <div id="searchMsg" class="msg"></div>
+    </div>
+
+    <!-- detalle -->
+    <div id="detailBox" style="display:none; text-align:center; margin: 10px 0 15px 0;">
+        <img id="detailImg" alt="Pokemon" style="width:180px; height:auto; margin:0 auto 8px auto; display:none; border-radius:6px;">
+        <div id="detailName" style="font-weight:bold;"></div>
+        <div id="detailInfo" style="font-size:13px; margin-top:6px;"></div>
+    </div>
+
+    <!-- resultados -->
+    <div id="resultsBox" style="display:none; margin-top:10px;">
+        <div id="resultsList" style="display:flex; flex-direction:column; gap:8px;"></div>
+    </div>
+
+    <!-- paginas -->
+    <div id="pagerBox" style="display:none; margin-top:10px;">
+        <div style="display:flex; gap:10px; justify-content:center; align-items:center;">
+            <button id="btnPrev" type="button" style="width:120px;">Anterior</button>
+            <div id="pagerInfo" style="font-size:13px;"></div>
+            <button id="btnNext" type="button" style="width:120px;">Siguiente</button>
+        </div>
+    </div>
+
+    <!-- cambiar paginas -->
+    <div class="link" style="margin-top: 15px;">
+        Ir a <a href="pag1.html">Jo Raider</a> |
+        <a href="pag2.html">Santi</a> |
+        <a href="pag4.html">Batalla</a>
+    </div>
+    <!-- logout local -->
+    <div class="link">
+        <a href="#" id="logout">Cerrar sesión</a>
+    </div>
+
+    <div id="footer"></div>
+</div>
+
+<script>
+    // logout simple
+    document.getElementById("logout").addEventListener("click", function(e) {
+        e.preventDefault();
+        sessionStorage.removeItem("loggedUser");
+        window.location.href = "login.html";
+    });
+</script>
+</body>
+</html>

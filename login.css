@@ -1,0 +1,118 @@
+body { 
+    font-family: Arial, sans-serif;
+    background: #d7f8f6;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor general */
+.login {
+    background: #ffffff;
+    padding: 25px;
+    width: 300px;
+    border-radius: 6px;
+
+    /* ahora sí: altura real para que el flex tenga espacio */
+    height: 90vh;
+    max-height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Header/Footer */
+.site-header, .site-footer {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.site-footer {
+    margin-top: 12px;
+    margin-bottom: 0;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.login h2 {
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+
+.login titulo {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.login input {
+    padding: 8px;
+    width: 95%;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login button {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.login .link {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.login a {
+    color: #000;
+    text-decoration: underline;
+}
+
+.msg {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+.msg.error { color: #b00000; }
+.msg.ok { color: #0b6b2c; }
+
+/* resultados: estructura flex para que la lista scrollee */
+#resultsBox{
+    margin-top: 10px;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    overflow: hidden;
+}
+
+#resultsList{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    flex: 1;
+    overflow-y: auto;
+
+    padding-right: 6px;
+    box-sizing: border-box;
+}
+
+/* paginación */
+#pagerBox{
+    margin-top: 10px;
+
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

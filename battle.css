@@ -1,0 +1,252 @@
+/* ajuste general de la vista */
+.battle-page {
+    width: 900px;
+    max-width: 95vw;
+    height: 90vh;
+    max-height: 90vh;
+}
+
+/* pantallas */
+.battle-screen {
+    display: none;
+}
+
+.battle-screen.active {
+    display: block;
+}
+
+.battle-subtitle {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* selección */
+.battle-select-grid {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 15px;
+    align-items: start;
+    margin-bottom: 15px;
+}
+
+.battle-select-card {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    background: #fafafa;
+    box-sizing: border-box;
+}
+
+.battle-select-card h3 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.battle-select-card input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.battle-select-card button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.battle-versus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    height: 100%;
+}
+
+/* preview */
+.preview-box {
+    display: none;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.preview-box.show {
+    display: block;
+}
+
+.preview-box img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+    margin: 0 auto 8px auto;
+}
+
+.preview-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.preview-type {
+    font-size: 13px;
+}
+
+/* botón principal */
+.battle-main-btn {
+    margin: 10px auto 0 auto;
+    display: block;
+    width: 240px;
+}
+
+/* arena */
+.battle-arena {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.pokemon-battle-card,
+.battle-center-card,
+.log-card {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    background: #fafafa;
+    box-sizing: border-box;
+}
+
+.pokemon-battle-card h3,
+.log-card h3 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.pokemon-battle-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.hp-label {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.hp-bar-container {
+    width: 100%;
+    height: 20px;
+    background: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.hp-bar {
+    width: 100%;
+    height: 100%;
+    background: #70d970;
+    transition: width 0.5s ease;
+}
+
+/* centro */
+.battle-center-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+}
+
+.turn-box {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.turn-title {
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.turn-text {
+    font-weight: bold;
+}
+
+.narrator-box {
+    border-radius: 6px;
+    padding: 12px;
+    background: #111;
+    color: #fff;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* historial */
+.log-card {
+    max-height: 230px;
+    overflow-y: auto;
+}
+
+.log-card ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+.log-card li {
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* ganador */
+#winnerScreen {
+    text-align: center;
+}
+
+.winner-title {
+    margin-bottom: 10px;
+}
+
+.winner-img {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+/* pequeño efecto */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+    100% { transform: translateX(0); }
+}
+
+/* responsive básico */
+@media (max-width: 900px) {
+    .battle-page {
+        width: 95vw;
+    }
+
+    .battle-select-grid,
+    .battle-arena {
+        grid-template-columns: 1fr;
+    }
+
+    .battle-versus {
+        margin: 5px 0;
+    }
+}
